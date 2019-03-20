@@ -1,0 +1,29 @@
+{
+  "defaultSeverity": "warning",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**"
+    ]
+  },
+  "rules": {
+    "quotemark": [true, "single"],
+    "indent": [true, "spaces", 2],
+    "interface-name": false,
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "no-consecutive-blank-lines": false,
+    "no-shadowed-variable": false, // 不允许隐藏变量声明。
+    "semicolon": false, // 是否分号结尾
+    "no-console": false, //不能使用console
+    "no-debugger": false, //不允许使用debugger
+    "no-for-in-array": false, //不允许使用for in 遍历数组
+    "prefer-for-of": true, //建议使用for(..of)
+    "no-null-keyword": false, //不允许使用null关键字
+    "only-arrow-functions": false, // 只允许使用箭头函数
+    "trailing-comma": false, // 是否强添加逗号
+    "curly": true //for if do while 要有括号
+  }
+}

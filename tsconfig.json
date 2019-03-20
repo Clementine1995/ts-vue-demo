@@ -1,0 +1,46 @@
+{
+  "compilerOptions": { //"compilerOptions"可以被忽略，这时编译器会使用默认值。
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    // "noImplicitAny": false,
+    "strictPropertyInitialization": false, // 变量是否必须初始化
+    // @types，typeRoots和types
+    // 默认所有可见的"@types"包会在编译过程中被包含进来。 node_modules/@types文件夹下以及它们子文件夹下的所有包都是可见的
+    // 如果指定了typeRoots，只有typeRoots下面的包才会被包含进来。
+    // 如果指定了types，只有被列出来的包才会被包含进来。指定"types": []来禁用自动引入@types包。
+    "types": [ 
+      "webpack-env",
+      "node"
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
