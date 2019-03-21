@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import Vue from 'vue'
+import Router from 'vue-router'
 import routes from './router'
 // import { getToken } from '@/utils/common'
 
@@ -39,7 +39,6 @@ const router = new Router({
 //     }
 //   }
 // })
-
 
 // 跳转之后
 router.afterEach((to) => {

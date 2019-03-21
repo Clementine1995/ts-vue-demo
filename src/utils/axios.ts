@@ -1,5 +1,5 @@
-import axios from 'axios';
-import config from './config';
+import axios from 'axios'
+import config from './config'
 
 // 取消重复请求
 // const pending: Array<{
@@ -21,7 +21,7 @@ import config from './config';
 //   }
 // };
 
-const http = axios.create(config);
+const http = axios.create(config)
 
 // 添加请求拦截器
 http.interceptors.request.use(
@@ -30,22 +30,22 @@ http.interceptors.request.use(
     // config.cancelToken = new cancelToken((c) => {
     //   pending.push({ url: config.url + '&request_type=' + config.method, cancel: c });
     // });
-    return config;
+    return config
   },
   (error) => {
-    return Promise.reject(error);
+    return Promise.reject(error)
   },
-);
+)
 
 // 返回状态判断(添加响应拦截器)
 http.interceptors.response.use(
   (res) => {
     // removePending(res.config);
-    return res;
+    return res
   },
   (error) => {
-    return Promise.reject(error);
+    return Promise.reject(error)
   },
-);
+)
 
-export default http;
+export default http

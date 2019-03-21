@@ -5,6 +5,9 @@
     <button @click="setUserInfo">获取用户信息</button>
     <div>{{ user.info.name }}</div>
     <div v-for="item of user.info.group" :key="item.id">group: {{ item.name }}</div>
+    <user-info #default="infoSlot">
+      {{ infoSlot.info.email }}
+    </user-info>
   </div>
 </template>
 
@@ -12,6 +15,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import { State as userState, User } from '../store/user/interface'
 import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
+import userInfo from '@/components/userInfo.vue' // @ is an alias to /src
 import {
   State,
   Getter,
@@ -24,7 +28,8 @@ import {
 
 @Component({
   components: {
-    HelloWorld
+    HelloWorld,
+    'user-info': userInfo
   }
 })
 export default class Home extends Vue {
