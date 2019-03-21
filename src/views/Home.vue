@@ -9,9 +9,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator'
 import { State as userState, User } from '../store/user/interface'
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
 import {
   State,
   Getter,
@@ -24,11 +24,10 @@ import {
 
 @Component({
   components: {
-    HelloWorld,
-  },
+    HelloWorld
+  }
 })
 export default class Home extends Vue {
-
   @Prop({ default: 0 }) private propA: number
 
   @State private user: User
@@ -45,7 +44,7 @@ export default class Home extends Vue {
   @Mutation private setUser: (data: User) => void
   // @someModule.Getter('foo') moduleGetterFoo
 
-  private setUserInfo(): void {
+  private setUserInfo (): void {
     this.setUser({
       name: 'zhangsan',
       id: '123444',
@@ -57,7 +56,7 @@ export default class Home extends Vue {
       }]
     })
   }
-  private created() {
+  private created () {
     console.log(this.user)
   }
 }
