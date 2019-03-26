@@ -8,6 +8,7 @@
     <user-info #default="infoSlot">
       {{ infoSlot.info.email }}
     </user-info>
+    <svg-icon iconClass="lishi" className="svg-lishi"></svg-icon>
   </div>
 </template>
 
@@ -66,3 +67,9 @@ export default class Home extends Vue {
   }
 }
 </script>
+<style lang="scss">
+.svg-lishi {
+  width: 2em;
+  height: 2em;
+}
+</style>
