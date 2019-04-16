@@ -24,7 +24,7 @@ module.exports = {
       .rule('svg')
       .exclude.add(resolve('src/icons'))
       .end()
-    config.module.rules.delete('svg') // 重点:删除默认配置中处理svg,
+    // config.module.rules.delete('svg') // 重点:删除默认配置中处理svg,
     // const svgRule = config.module.rule('svg')
     // svgRule.uses.clear()
     config.module
