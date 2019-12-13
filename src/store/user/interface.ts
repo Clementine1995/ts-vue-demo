@@ -1,16 +1,18 @@
+/** @format */
+
 export interface Group {
-  name: string,
+  name: string
   id: string
 }
 
 export interface User {
-  name: string,
-  id: string,
-  age?: number,
+  name: string
+  id: string
+  age?: number
   vip: boolean
   group?: Group[]
 }
 export interface State {
-  info: User,
+  info: User
   count: number
 }

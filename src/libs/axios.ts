@@ -1,3 +1,5 @@
+/** @format */
+
 import axios from 'axios'
 import config from './config'
 
@@ -25,27 +27,27 @@ const http = axios.create(config)
 
 // 添加请求拦截器
 http.interceptors.request.use(
-  (config) => {
+  config => {
     // removePending(config);
     // config.cancelToken = new cancelToken((c) => {
     //   pending.push({ url: config.url + '&request_type=' + config.method, cancel: c });
     // });
     return config
   },
-  (error) => {
+  error => {
     return Promise.reject(error)
-  },
+  }
 )
 
 // 返回状态判断(添加响应拦截器)
 http.interceptors.response.use(
-  (res) => {
+  res => {
     // removePending(res.config);
     return res
   },
-  (error) => {
+  error => {
     return Promise.reject(error)
-  },
+  }
 )
 
 export default http

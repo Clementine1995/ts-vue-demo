@@ -1,6 +1,8 @@
+/** @format */
+
 // import request from '@/service'
-import { State, User } from './interface'
 import { Commit } from 'vuex'
+import { State, User } from './interface'
 
 const state: State = {
   info: {
@@ -17,7 +19,7 @@ const getters = {
 }
 
 const actions = {
-  async getUserInfo (context: { commit: Commit }) {
+  async getUserInfo(context: { commit: Commit }) {
     // return request.get('/api/weatherApi', { params })
     // context.commit('setUser', {
     //   name: 'zhangsan',
@@ -34,7 +36,7 @@ const actions = {
 }
 
 const mutations = {
-  setUser (state: State, data: User): void {
+  setUser(state: State, data: User): void {
     console.log(data)
     // state = data 不起作用。。
     // state = data

@@ -1,4 +1,6 @@
-import http from '../utils/axios'
+/** @format */
+
+import http from './axios'
 
 export const getUserInfo = () => {
   return http.request({
