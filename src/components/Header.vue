@@ -48,7 +48,6 @@ export default class Header extends Vue {
       iconName: 'yingtao',
       color: '#FFCC22'
     }
-    console.log(this)
     this.createTodoItem(newItem)
   }
 

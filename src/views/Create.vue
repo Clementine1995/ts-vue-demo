@@ -39,7 +39,7 @@ import { SwipeCell, Cell, CellGroup, Field } from 'vant'
 import { Mutation, Getter } from 'vuex-class'
 import Circles from '../components/Circles.vue'
 import { config } from '../libs/colors'
-import { ITodoItem } from '../store/state'
+import { ITodoItem, Mode } from '../store/state'
 import { _ } from '../libs/utils'
 
 @Component({
@@ -67,13 +67,20 @@ export default class Create extends Vue {
 
   private colorSetting: string[] = config.colorSetting
 
-  private id!: string
+  private id: string = ''
 
-  private index!: number
+  private index: number = 0
 
-  private currentItem!: ITodoItem
+  private currentItem: ITodoItem = {
+    id: '', // todo任务的id
+    name: '', // todo 任务名称
+    isDone: false, // 任务是否完成
+    iconName: '', // 任务的图标
+    color: '', // 任务底色
+    mode: Mode.edit // 编辑状态
+  }
 
-  private mounted() {
+  private created() {
     const list = this.getCurrentTodoList
     this.index = list.length - 1
     const currentItem = list[this.index]
@@ -83,9 +90,7 @@ export default class Create extends Vue {
   // 计算当前icon名称
   private get iconComputed() {
     const currentItem = _.find(this.getCurrentTodoList, this.id)
-    console.log(currentItem)
     const { iconName } = currentItem!
-    console.log(iconName)
     return iconName
   }
 
