@@ -24,6 +24,8 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import { Icon } from 'vant'
+import { Mutation, State } from 'vuex-class'
+import { ITodoItem, Mode } from '../store/state'
 
 @Component({
   components: {
@@ -31,15 +33,39 @@ import { Icon } from 'vant'
   }
 })
 export default class Header extends Vue {
+  @State private todoList!: ITodoItem[]
+
+  @Mutation private createTodoItem!: (todo: ITodoItem) => void
+
+  @Mutation private finishTodoItem!: () => void
+
+  private createTodoItemHandle() {
+    const newItem: ITodoItem = {
+      id: new Date().getTime().toString(),
+      name: '新任务',
+      isDone: false,
+      mode: Mode.edit,
+      iconName: 'yingtao',
+      color: '#FFCC22'
+    }
+    console.log(this)
+    this.createTodoItem(newItem)
+  }
+
   private leftHandle() {
+    this.finishTodoItem()
     this.$router.back()
   }
+
   private rightHandle() {
     this.$router.push({ path: '/create' })
+    this.createTodoItemHandle()
   }
+
   created() {
-    console.log(Icon.name)
+    console.log(this.todoList)
   }
+
   public get pageInfoComputed() {
     const currentRouteName = this.$route.name
     switch (currentRouteName) {
@@ -60,7 +86,13 @@ export default class Header extends Vue {
           title: '新建任务'
         }
       default:
-        return ''
+        return {
+          icon: {
+            name: 'plus',
+            arrow: 'right'
+          },
+          title: '我的待办'
+        }
     }
   }
 }

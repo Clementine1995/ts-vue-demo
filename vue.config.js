@@ -18,7 +18,7 @@ module.exports = {
   productionSourceMap: false, // 开启 生产环境的 source map?
   chainWebpack: config => {
     // 配置路径别名
-    config.resolve.alias.set('@', resolve('src')).set('_c', resolve('src/components'))
+    config.resolve.alias.set('@/', resolve('src')).set('_c', resolve('src/components'))
   },
   devServer: {
     port: 8080, // 端口
